@@ -9,11 +9,27 @@ import { useForm } from 'react-hook-form'
 import { CiClock1 } from 'react-icons/ci'
 import { FaFacebookF, FaFolder, FaInstagram, FaXTwitter } from 'react-icons/fa6'
 const categories=[
-    "Latest News","Today Best Posts","Design Trend","UI/UX Tips","Brand Design"
+    {id:0,text:"Latest News"},
+    {id:1,text:"Today Best Posts"},
+    {id:2,text:"Design Trend"},
+    {id:3,text:"UI/UX Tips"},
+    {id:4,text:"Brand Design"}
+]
+
+const icons=[
+    {id:0,icon:<FaFacebookF/>},
+    {id:1,icon:<FaInstagram/>},
+    {id:2,icon:<FaXTwitter/>}
 ]
 
 const tags=[
-    "Dream","Rings","Birthday","Gifts","Necklace","Chain","Braclet"
+    {id:0,text:"Dream"},
+    {id:1,text:"Rings"},
+    {id:2,text:"Birthday"},
+    {id:3,text:"Gifts"},
+    {id:4,text:"Necklace"},
+    {id:5,text:"Chain"},
+    {id:6,text:"Braclet"}
 ]
 
 const BlogDetails = () => {
@@ -127,9 +143,9 @@ const BlogDetails = () => {
 
                             <div className='flex items-center gap-x-4'>
                                 {
-                                    [<FaFacebookF/>,<FaInstagram/>,<FaXTwitter/>].map((item,index)=>(
-                                        <div key={index} className='border border-[#EAEAEA] w-[40px] h-[40px] rounded-md bg-white flex items-center justify-center'>
-                                            {item}
+                                    icons.map((item)=>(
+                                        <div key={item.id} className='border border-[#EAEAEA] w-[40px] h-[40px] rounded-md bg-white flex items-center justify-center'>
+                                            {item.icon}
                                         </div>
                                     ))
                                 }
@@ -249,15 +265,15 @@ const BlogDetails = () => {
                     <div className='w-full mt-2 h-[0.5px] bg-[#E8E8E8] '/>
 
                     <div className='mt-4 flex flex-col gap-y-3'>
-                        {categories.map((category,index) => (
-                        <div key={index} className="flex items-center gap-2 mb-1">
+                        {categories.map((category) => (
+                        <div key={category.id} className="flex items-center gap-2 mb-1">
                             <input
                             type="checkbox"
-                            checked={selected.includes(category)}
-                            onChange={() => handleChange(category)}
+                            checked={selected.includes(category.text)}
+                            onChange={() => handleChange(category.text)}
                             className="w-[20px] h-[20px] bg-white border border-#E3E3E3] rounded-xs"
                             />
-                            <label className="text-sm text-[#1a1a1a] ">{category}</label>
+                            <label className="text-sm text-[#1a1a1a] ">{category.text}</label>
                         </div>
                         ))}
                     </div>
@@ -296,9 +312,9 @@ const BlogDetails = () => {
                     
                     <div className='w-full grid grid-cols-3 md:grid-cols-5 lg:grid-cols-4 gap-6 mt-6'>
                     {
-                        tags.map((item,index)=>(
-                            <div key={index} className={`w-full border border-[#E8E8E8] py-2 rounded-md flex items-center lg:text-sm justify-center font-semibold uppercase  ${(index===0)?"bg-[#E53E3E] text-white":"bg-white text-[#1a1a1a]"}`}>
-                                {item}
+                        tags.map((item)=>(
+                            <div key={item.id} className={`w-full border border-[#E8E8E8] py-2 rounded-md flex items-center lg:text-sm justify-center font-semibold uppercase  ${(item.id===0)?"bg-[#E53E3E] text-white":"bg-white text-[#1a1a1a]"}`}>
+                                {item.text}
                             </div>
                         ))
                     }

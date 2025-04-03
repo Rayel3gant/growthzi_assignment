@@ -4,6 +4,7 @@ import HeroSection from '@/components/HeroSection'
 import Loader from '@/components/Loader'
 import Navbar1 from '@/components/Navbar1'
 import { blogGridItems } from '@/data/Others'
+import { useRouter } from 'next/navigation'
 import React, { useState } from 'react'
 import { CiClock1 } from 'react-icons/ci'
 import { FaFolder } from 'react-icons/fa6'
@@ -24,6 +25,7 @@ const BlogList = () => {
     const [currentPage, setCurrentPage] = useState(1);
     const totalPages = Math.ceil(blogGridItems.length / ITEMS_PER_PAGE);
     const [loading,setLoading]=useState(false)
+    const router=useRouter()
 
     const currentItems = blogGridItems.slice(
         (currentPage - 1) * ITEMS_PER_PAGE,
@@ -83,7 +85,7 @@ const BlogList = () => {
                                                 <div className='text-[#1a1a1a] font-bold mt-4 text-sm md:text-lg'>{item.title}</div>
                                                 <div className='text-[#74787C] text-xs md:text-sm mt-4'>{item.desc}</div>
 
-                                                <button className='flex items-center gap-x-4 cursor-pointer mt-8'>
+                                                <button onClick={()=>router.push("/blogDetails")} className='flex items-center gap-x-4 cursor-pointer mt-8'>
                                                     <div className='w-[40px] h-[40px] rounded-full bg-white shadow-sm flex items-center justify-center '>
                                                         <IoIosArrowRoundForward className='text-xl' />
                                                     </div>

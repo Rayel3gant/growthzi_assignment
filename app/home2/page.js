@@ -8,6 +8,16 @@ import Image from "next/image";
 import { GoPlus } from "react-icons/go";
 import { IoArrowForwardSharp } from "react-icons/io5";
 
+const categories = [
+  { id: 1, text: "Breakfast & Dairy" },
+  { id: 2, text: "Fresh Vegetables" },
+  { id: 3, text: "Fresh Vegetables" },
+  { id: 4, text: "Fresh Vegetables" },
+  { id: 5, text: "Fresh Vegetables" },
+  { id: 6, text: "Fresh Vegetables" },
+  { id: 7, text: "Fresh Vegetables" },
+  { id: 8, text: "Fresh Vegetables" }
+];
 const Home2 = () => {
   return (
     <div className="w-full">
@@ -19,12 +29,12 @@ const Home2 = () => {
           <div className="w-full flex flex-col md:flex-row md:justify-between gap-y-6 gap-x-4">
             <div className="w-full 1 md:w-[300px] xl:w-[250px] border border-[#E5E7EB] rounded-sm ">
               {
-                ["Breakfast & Dairy","Fresh Vegetables","Fresh Vegetables","Fresh Vegetables","Fresh Vegetables","Fresh Vegetables","Fresh Vegetables","Fresh Vegetables"].map((item,index)=>(
-                  <div className={`flex items-center gap-x-2 ${(index===0)?"text-[#141414]":"text-[#74787C]"} font-semibold py-4 px-5 ${(index!==7) && "border-b-[0.5px] border-[#E5E7EB]"} `}>
+                categories.map((item)=>(
+                  <div key={item.id} className={`flex items-center gap-x-2 ${(item.id===0)?"text-[#141414]":"text-[#74787C]"} font-semibold py-4 px-5 ${(item.id!==8) && "border-b-[0.5px] border-[#E5E7EB]"} `}>
                     <div className="bg-[#67B02E1F] w-[25px] h-[25px] rounded-full flex justify-center items-center  text-[#67B02E]">
                       <GoPlus/>
                     </div>
-                    {item}
+                    {item.text}
                   </div>
                 ))
               }
