@@ -95,7 +95,7 @@ const BlogDetails = () => {
                             <div className='flex items-center gap-x-3'>
                                 {
                                     ["Dream","Rings","Birthday"].map((item,index)=>(
-                                        <div key={item} className={` rounded-md uppercase text-xs md:text-sm font-bold px-2 py-2 ${(index===0)?"bg-black text-white":"bg-white text-black border border-[#E6E6E6]"}`}>
+                                        <div key={index} className={` rounded-md uppercase text-xs md:text-sm font-bold px-2 py-2 ${(index===0)?"bg-black text-white":"bg-white text-black border border-[#E6E6E6]"}`}>
                                             {item}
                                         </div>
                                     ))
@@ -249,8 +249,8 @@ const BlogDetails = () => {
                     <div className='w-full mt-2 h-[0.5px] bg-[#E8E8E8] '/>
 
                     <div className='mt-4 flex flex-col gap-y-3'>
-                        {categories.map((category) => (
-                        <div key={category} className="flex items-center gap-2 mb-1">
+                        {categories.map((category,index) => (
+                        <div key={index} className="flex items-center gap-2 mb-1">
                             <input
                             type="checkbox"
                             checked={selected.includes(category)}
@@ -297,7 +297,7 @@ const BlogDetails = () => {
                     <div className='w-full grid grid-cols-3 md:grid-cols-5 lg:grid-cols-4 gap-6 mt-6'>
                     {
                         tags.map((item,index)=>(
-                            <div key={item} className={`w-full border border-[#E8E8E8] py-2 rounded-md flex items-center lg:text-sm justify-center font-semibold uppercase  ${(index===0)?"bg-[#E53E3E] text-white":"bg-white text-[#1a1a1a]"}`}>
+                            <div key={index} className={`w-full border border-[#E8E8E8] py-2 rounded-md flex items-center lg:text-sm justify-center font-semibold uppercase  ${(index===0)?"bg-[#E53E3E] text-white":"bg-white text-[#1a1a1a]"}`}>
                                 {item}
                             </div>
                         ))

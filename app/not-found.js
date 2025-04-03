@@ -17,7 +17,7 @@ const NotFound = () => {
             <div className='w-full flex flex-col items-center gap-y-6'>
                 <Image src="/404.png" alt='404' width={600} height={400} className='w-full h-[300px] md:h-[350px]' />
                 <div className='text-black font-bold text-lg md:text-xl lg:text-5xl '>Page Not found</div>
-                <div className='text-[#74787C] text-xs md:text-sm  text-center mx-auto'>Sorry, we couldn't find the page you where looking for. We suggest that you return to homepage.</div>
+                <div className='text-[#74787C] text-xs md:text-sm  text-center mx-auto'>Sorry, we couldn&apos;t find the page you were looking for. We suggest that you return to homepage.</div>
 
                 <button onClick={()=>router.push("/")} className='bg-[#E53E3E] mt-12 cursor-pointer text-white font-bold w-fit px-4 py-3 rounded-md uppercase text-xs md:text-sm '>
                     back to homepage
